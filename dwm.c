@@ -271,6 +271,8 @@ static Window root, wmcheckwin;
 /* configuration, allows nested code to access above variables */
 #include "config.h"
 
+static Arg autostartarg = { .v = autostartcmd };
+
 /* compile-time check if all tags fit into an unsigned int bit array. */
 struct NumTags { char limitexceeded[LENGTH(tags) > 31 ? -1 : 1]; };
 
@@ -2155,6 +2157,7 @@ main(int argc, char *argv[])
 		die("pledge");
 #endif /* __OpenBSD__ */
 	scan();
+    spawn(&autostartarg);
 	run();
 	cleanup();
 	XCloseDisplay(dpy);

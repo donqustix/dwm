@@ -50,6 +50,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, NULL };
 static const char *termcmd[]  = { "st", NULL };
+static const char *autostartcmd[] = { "/bin/sh", "dwminit.sh", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
