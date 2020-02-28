@@ -1020,9 +1020,7 @@ void
 manage(Window w, XWindowAttributes *wa)
 {
     char windownamegif[256];
-	if (!gettextprop(w, netatom[NetWMName], windownamegif, sizeof windownamegif))
-		gettextprop(w, XA_WM_NAME, windownamegif, sizeof windownamegif);
-    fprintf(stderr, "TITLE: %s", windownamegif);
+    gettextprop(w, XA_WM_NAME, windownamegif, sizeof windownamegif);
     if (!strcmp(windownamegif, "gifwallpaper")) {
         selmon->gifwallpaper = w;
         XMoveResizeWindow(dpy, w, 0, 0, selmon->mw, selmon->mh);
